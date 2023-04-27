@@ -1,6 +1,6 @@
 body{
     background-image: url("assets/bg.jpg");
-    opacity: 0.6;
+    background-size: cover;
     color: black;
     font-family:'Public Sans',sans-serif;
 }
@@ -22,15 +22,21 @@ body{
     display:grid;
     justify-content: center;
     padding-top: 10%;
-    row-gap: 80%;
+    row-gap: 60%;
+
+}
+.content > h1{
+    position: relative;
+    text-align: center;
 }
 
 .weather-content{
-    position: absolute;
-    top: 50%;
-    left: 30%;
-    height:60px;
-
+    position: relative;
+    height:40px;
+    font-size: larger;
+    text-transform: uppercase;
+    
+    text-align: center;
 }
 
 .location{
@@ -57,4 +63,29 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+#loc{
+    display: inline;
+    justify-content: center;
+    width: 15rem;
+    height: 2.5rem;
+    border-radius: 20px;
+    padding: 0 20px;
+    font-size: larger;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+}
+
+#search-btn{
+    height: 2.7rem;
+    width: 2.7rem;
+    border-radius: 50%;
+}
+
+.content > span{
+
+    justify-self: center;
 }

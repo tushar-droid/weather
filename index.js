@@ -1,3 +1,14 @@
+window.onload= function()
+{
+    var input = document.getElementById("loc");
+    input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+    event.preventDefault();
+    APIRequest();
+  }
+});
+}
+
 
 
 function APIRequest(){
@@ -7,9 +18,7 @@ function APIRequest(){
     request.send();
     var details;
     request.onload = () =>{
-        console.log(request);
         if (request.status === 200){
-            console.log("Fetch was successful!!");
             details = JSON.parse(request.response);  
         } 
         else{
@@ -33,24 +42,27 @@ function getLocation(){
 
 function setLocation(address){
     toSet = document.getElementsByClassName("location");
-    toSet[0].innerHTML= `Set Location: ${address.toUpperCase()}`;
+    toSet[0].innerHTML= `<b>Set Location :</b>\u00A0\u00A0\u00A0\u00A0${address.toUpperCase()}`;
 }
 function setAlerts(alerts){
     toSet = document.getElementsByClassName("alerts");
     if (alerts!=""){
-        toSet[0].innerHTML= `Alerts: ${alerts}`;
+        console.log(alerts);
+        toSet[0].style.color="red";
+        toSet[0].innerHTML= `<b>Alerts :</b>\u00A0\u00A0\u00A0\u00A0${alerts[0]['event']}\u00A0!!!`;
     }
     else{
-        toSet[0].innerHTML= `There are No Active Alerts for this Location`;
+        toSet[0].style.color="black";
+        toSet[0].innerHTML= `<b>There are No Active Alerts for this Location</b>`;
     }
 }
 function setTemp(temp){
     toSet = document.getElementsByClassName("temp");
-    toSet[0].innerHTML= `Temp: ${temp}`;
+    toSet[0].innerHTML= `<b>Temp :</b>\u00A0\u00A0\u00A0\u00A0${temp}`;
 }
 function setfeelslike(feelslike){
     toSet = document.getElementsByClassName("feelslike");
-    toSet[0].innerHTML= `Feelslike: ${feelslike}`;
+    toSet[0].innerHTML= `<b>Feelslike :</b>\u00A0\u00A0\u00A0\u00A0${feelslike}`;
 }
 
 
